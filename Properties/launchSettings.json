@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ColaApps (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "ColaApps (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

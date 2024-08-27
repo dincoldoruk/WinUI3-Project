@@ -1,0 +1,86 @@
+<Window
+    x:Class="ColaApps.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ColaApps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="ColaApps"
+    >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0" Width="350" Margin="20" Background="#f4f4f4" BorderBrush="#ddd" BorderThickness="1" CornerRadius="10">
+            <StackPanel Padding="20">
+                <TextBlock Text="Yeni Bayi Ekle" FontSize="24" FontWeight="Bold" Foreground="#333" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+                <TextBox x:Name="newStoreNameTextBox" PlaceholderText="Bayi Adı" FontSize="16" Padding="8" Margin="0,0,0,10" BorderBrush="#ccc" BorderThickness="1" CornerRadius="5"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Şişe Sayısı:" VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Width="130" Foreground="#333"/>
+                    <TextBox x:Name="newBottleCountTextBox" PlaceholderText="Şişe adeti" FontSize="16" Padding="8" Width="150" BorderBrush="#ccc" BorderThickness="1" CornerRadius="5"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                    <TextBlock Text="Litrelik Kola Sayısı:" VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Width="130" Foreground="#333"/>
+                    <TextBox x:Name="newLiterCountTextBox" PlaceholderText="1 Litrelik kola adeti" FontSize="16" Padding="8" Width="150" BorderBrush="#ccc" BorderThickness="1" CornerRadius="5"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                    <TextBlock Text="Enlem:" VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Width="130" Foreground="#333"/>
+                    <TextBox x:Name="newLatitudeTextBox" PlaceholderText="Enlem" FontSize="16" Padding="8" Width="150" BorderBrush="#ccc" BorderThickness="1" CornerRadius="5"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                    <TextBlock Text="Boylam:" VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Width="130" Foreground="#333"/>
+                    <TextBox x:Name="newLongitudeTextBox" PlaceholderText="Boylam" FontSize="16" Padding="8" Width="150" BorderBrush="#ccc" BorderThickness="1" CornerRadius="5"/>
+                </StackPanel>
+
+                <Button Content="Ekle" Click="AddStore_Click" FontSize="16" Padding="10" Margin="0,10,0,0" HorizontalAlignment="Center" Background="#0078D4" Foreground="White" BorderBrush="#005A9E" BorderThickness="1" CornerRadius="5"/>
+
+                <TextBlock x:Name="addStatusTextBlock" Margin="0,10,0,0" FontSize="16" Foreground="Green" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" >
+                <WebView2 x:Name="webView2" 
+                          HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch"
+                          Height="300" 
+                          Width="600"
+                          Grid.Row="0" />
+            </Grid>
+
+            <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20">
+                <TextBlock Text="Lütfen Bayi Seçin" FontSize="24" FontWeight="Bold" Foreground="#333" Margin="0,20,0,20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <ComboBox x:Name="storeComboBox" SelectionChanged="StoreComboBox_SelectionChanged" Margin="0,0,0,20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBlock Text="Şişe Sayısı:" VerticalAlignment="Center" TextAlignment="Center" FontSize="16" Margin="0,0,10,0" Width="130" Foreground="#333"/>
+                    <TextBox x:Name="bottleCountTextBox" PlaceholderText="Şişe adeti" FontSize="16" Padding="8" Width="200" BorderBrush="#ccc" BorderThickness="1" CornerRadius="5"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                    <TextBlock Text="Litrelik Kola Sayısı:" VerticalAlignment="Center" FontSize="16" Margin="0,0,10,0" Width="130" Foreground="#333"/>
+                    <TextBox x:Name="literCountTextBox" PlaceholderText="1 Litrelik kola adeti" FontSize="16" Padding="8" Width="200" BorderBrush="#ccc" BorderThickness="1" CornerRadius="5"/>
+                </StackPanel>
+
+                <Button Content="Güncelle" Click="UpdateData_Click" FontSize="16" Padding="10" Margin="0,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#0078D4" Foreground="White" BorderBrush="#005A9E" BorderThickness="1" CornerRadius="5"/>
+
+                <TextBlock x:Name="statusTextBlock" Margin="0,20,0,0" FontSize="16" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,8 @@
+﻿.vs/
+bin/
+obj/
+*.user
+*.suo
+*.dbmdl
+*.pfx
+ColaApps_TemporaryKey.pfx
